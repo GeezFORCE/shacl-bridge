@@ -174,9 +174,9 @@ const jsonSchema = await new ShaclReader().fromJsonLdContent(jsonLdString).conve
 
 // With options (exclude x-shacl-* extensions)
 const jsonSchema = await new ShaclReader()
-        .fromPath('input.ttl')
-        .withOptions({ includeShaclExtensions: true })
-        .convert();
+  .fromPath('input.ttl')
+  .withOptions({ includeShaclExtensions: true })
+  .convert();
 ```
 
 #### JSON Schema to SHACL

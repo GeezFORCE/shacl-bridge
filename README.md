@@ -5,6 +5,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/shacl-bridge.svg)](https://www.npmjs.com/package/shacl-bridge)
 [![codecov](https://codecov.io/gh/GeezFORCE/shacl-bridge/graph/badge.svg?token=FSIANIX7XT)](https://codecov.io/gh/GeezFORCE/shacl-bridge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Identifier](https://img.shields.io/badge/doi-10.18419%2Fdarus--5964-d45815.svg)](https://doi.org/10.18419/darus-5964)
 
 A CLI tool for bidirectional conversion between SHACL (Shapes Constraint Language) and JSON Schema.
 
@@ -101,7 +102,7 @@ the file being evaluated.
 ##### `to-json-schema`
 
 | Option                       | Description                                                             |
-| ---------------------------- | ----------------------------------------------------------------------- |
+|------------------------------|-------------------------------------------------------------------------|
 | `-i, --input <file>`         | SHACL file to convert (Turtle or JSON-LD)                               |
 | `-o, --output <file>`        | Output file (single mode) or directory (multi mode)                     |
 | `--from-clipboard`           | Read SHACL content from clipboard                                       |
@@ -114,7 +115,7 @@ the file being evaluated.
 ##### `to-shacl`
 
 | Option                | Description                             |
-| --------------------- | --------------------------------------- |
+|-----------------------|-----------------------------------------|
 | `-i, --input <file>`  | JSON Schema file to convert             |
 | `-o, --output <file>` | Output file for SHACL                   |
 | `--from-clipboard`    | Read JSON Schema content from clipboard |
@@ -124,7 +125,7 @@ the file being evaluated.
 ##### `compare`
 
 | Option              | Description                                            |
-| ------------------- | ------------------------------------------------------ |
+|---------------------|--------------------------------------------------------|
 | `--expected <file>` | Expected (reference) SHACL file (Turtle, required)     |
 | `--actual <file>`   | Actual (predicted) SHACL file (Turtle, required)       |
 | `--shorten`         | Shorten URIs in diff output using prefixes from inputs |
@@ -173,9 +174,9 @@ const jsonSchema = await new ShaclReader().fromJsonLdContent(jsonLdString).conve
 
 // With options (exclude x-shacl-* extensions)
 const jsonSchema = await new ShaclReader()
-  .fromPath('input.ttl')
-  .withOptions({ includeShaclExtensions: true })
-  .convert();
+        .fromPath('input.ttl')
+        .withOptions({ includeShaclExtensions: true })
+        .convert();
 ```
 
 #### JSON Schema to SHACL
@@ -195,15 +196,15 @@ const jsonSchema = {
 
 // Convert to Turtle
 const turtle = await new ShaclWriter(jsonSchema)
-  .getStoreBuilder()
-  .withPrefixes({ ...DEFAULT_PREFIXES, ex: 'http://example.org/' })
-  .write();
+        .getStoreBuilder()
+        .withPrefixes({ ...DEFAULT_PREFIXES, ex: 'http://example.org/' })
+        .write();
 
 // Convert to JSON-LD
 const jsonLd = await new ShaclWriter(jsonSchema)
-  .getStoreBuilder()
-  .withPrefixes({ ...DEFAULT_PREFIXES, ex: 'http://example.org/' })
-  .writeJsonLd();
+        .getStoreBuilder()
+        .withPrefixes({ ...DEFAULT_PREFIXES, ex: 'http://example.org/' })
+        .writeJsonLd();
 ```
 
 ## Development
